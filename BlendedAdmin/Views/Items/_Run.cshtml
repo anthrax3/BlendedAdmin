@@ -26,6 +26,10 @@
         {
             @Html.Partial("_HtmlView", view)
         }
+        if (view is BlendedAdmin.Models.Items.DataTablesViewModel)
+        {
+            @Html.Partial("_DataTablesView", view)
+        }
         <br />
     }
 }

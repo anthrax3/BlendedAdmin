@@ -1,0 +1,28 @@
+@model BlendedAdmin.Models.Items.DataTablesViewModel
+@inject BlendedAdmin.Services.IUrlService urlService
+@inject IJsonHelper jsonHelper;
+@using BlendedJS;
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatables/datatables.min.css" />
+<script type="text/javascript" src="~/lib/datatables/datatables.min.js"></script>
+<style>
+    table.dataTable {
+        border-collapse: collapse !important;
+    }
+</style>
+@if (string.IsNullOrEmpty(Model.Title) == false)
+{
+    <h6>@Model.Title</h6>
+}
+
+@{ var tableId = Guid.NewGuid().ToString();}
+
+<div class="table-responsive">
+    <table id="@(tableId)" class="table table-striped table-sm"></table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#@(tableId)').DataTable(@Html.Raw(Model.Options));
+    });
+</script>

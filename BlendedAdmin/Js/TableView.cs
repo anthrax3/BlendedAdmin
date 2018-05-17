@@ -10,6 +10,7 @@ namespace BlendedAdmin.Js
     public class TableView : View
     {
         public TableView() {}
+
         public TableView(object rowsOrOptions)
         {
             if (rowsOrOptions is object[])

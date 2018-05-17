@@ -66,6 +66,7 @@ namespace BlendedAdmin.Js
                 engine.Jint.SetValue("TableView", TypeReference.CreateTypeReference(engine.Jint, typeof(TableView)));
                 engine.Jint.SetValue("JsonView", TypeReference.CreateTypeReference(engine.Jint, typeof(JsonView)));
                 engine.Jint.SetValue("HtmlView", TypeReference.CreateTypeReference(engine.Jint, typeof(HtmlView)));
+                engine.Jint.SetValue("DataTablesView", TypeReference.CreateTypeReference(engine.Jint, typeof(DataTablesView)));
                 engine.Jint.SetValue("arg", arg);
                 engine.Jint.SetValue("errors", new object[0]);
                 var jsResult = engine.ExecuteScript(code);
@@ -88,6 +89,8 @@ namespace BlendedAdmin.Js
                             runResults.Views.Add(new JsonViewModelAssembler().ToModel((JsonView)view));
                         if (view is HtmlView)
                             runResults.Views.Add(new HtmlViewModelAssembler().ToModel((HtmlView)view));
+                        if (view is DataTablesView)
+                            runResults.Views.Add(new DataTablesViewModelAssembler().ToModel((DataTablesView)view));
                     }
                 }
                 else if (jsResult.Value is View)
@@ -100,6 +103,8 @@ namespace BlendedAdmin.Js
                         runResults.Views.Add(new JsonViewModelAssembler().ToModel((JsonView)jsResult.Value));
                     if (jsResult.Value is HtmlView)
                         runResults.Views.Add(new HtmlViewModelAssembler().ToModel((HtmlView)jsResult.Value));
+                    if (jsResult.Value is DataTablesView)
+                        runResults.Views.Add(new DataTablesViewModelAssembler().ToModel((DataTablesView)jsResult.Value));
                 }
                 return runResults;
             }
