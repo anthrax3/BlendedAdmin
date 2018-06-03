@@ -16,3 +16,5 @@ render result (eg. table with products)<br/>
 ![Run Item](docs/RunItem.PNG "Run Item")
 
 ![Environments](docs/Environments.PNG "Environments")
+
+[![FeedbackMe](http://www.feedbackme.io/images/FeedbackMeButton.PNG)](http://www.feedbackme.io/Feedback/63kWC1)
